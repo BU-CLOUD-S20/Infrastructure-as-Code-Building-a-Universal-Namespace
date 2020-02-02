@@ -69,7 +69,6 @@ Global Architectural Structure Of the Project:
 * Database: User data and service record
 
 ![](https://github.com/BU-CLOUD-S20/Infrastructure-as-Code-Building-a-Universal-Namespace/blob/master/doc/Structure%20Diagram.png)
-(SPACE FOR FIGURE)
 
 Figure 1: Upspin on cloud architecture. Items are blue are the responsibility of this project. Yellow items are part of the larger IaC project, and are not the responsibility of this project.
 
