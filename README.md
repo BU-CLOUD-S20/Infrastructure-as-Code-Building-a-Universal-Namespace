@@ -1,28 +1,29 @@
 # Infrastructure as Code: Building a Universal Namespace
 
-# 1. Vision and Goals Of The Project
+## 1. Vision and Goals Of The Project
 
 In this project, we will create an ansible playbook that automates the setup of an Upspin server on the Massachusetts Open Cloud. We mainly focus on:
 * Creating necessary infrastructure in MoC (OpenStack)
 * Deploying and configure Upspin
+
 Further development:
 * Create an application to scale either servers or storage based on playbook
 * Use an external storage volume in the MoC
 * Cross-cloud deployment, e.g. access files in Google Drive from Upspin deployed on MoC
 * Create an application or use that showcases Upspin's features 
 
-# 2. Users/Personas Of The Project
+## 2. Users/Personas Of The Project
 
 The IaC project aims to create an auto-setup service on the Massachusetts Open Cloud (MoC), which enable users to deploy an Upspin server without manually provisioning infrastructures.   
 Our target user groups include:
-* Admin user
+* Server provider
   Upspin server providers who manage all the resources
 * End user
   Upspin server users who save/retrieve/share files with customized configurations
 
-# 3. Scope and Features Of The Project
+## 3. Scope and Features Of The Project
 
-## Minimum Value Product Features:
+### Minimum Value Product Features:
 * User Interface
     + UI for admin user (invisible to end user):
         + Manage the container
@@ -43,7 +44,7 @@ Our target user groups include:
      + Upspin: Data are allocated separately where each piece is encrypted individually.     
      + Ansible: Agentless architecture and use of OpenSSH & WinRM of Ansible Playbook
 
-## Further high-level features
+### Further high-level features
 * Cross-cloud: 
 Provide cross-cloud deployment like accessing files in Google Drive from Upspin deployed on MoC.
 * Scalability: 
@@ -52,7 +53,7 @@ Scale to multiple servers or storages by Ansible playbook
 Create an extensible application used to showcase the Upspin’s features.
 
 
-# 4. Solution Concept
+## 4. Solution Concept
 Global Architectural Structure Of the Project:
 
 * Upspin:
@@ -87,7 +88,7 @@ Our goal is using Ansible to deploy and manage Upspin on MOC. Figure 1 presents 
 
     + Realtime Database Updates: All end-user data, such as service requested and actually used, will be stored in DB, managed and updated either automatically or manually by admin-users.
 
-# 5. Acceptance Criteria
+## 5. Acceptance Criteria
 Minimum acceptance criteria is a deployed upspin server on MOC, configured by an Ansible playbook.   
 If time permits, stretch goals are:
 * Playbook to scale either servers or storage
@@ -95,7 +96,7 @@ If time permits, stretch goals are:
 * Cross-cloud deployment (e.g. access files in Google Drive from Upspin deployed on MoC)
 * Create an application to showcase Upspin’s features (e.g. gmail plugins)
 
-# 6. Release Planning
+## 6. Release Planning
 * Release 1 (due by Week 5)
   Ansible playbook with necessary infrastructure in MoC (e.g. authentication, instance management etc,.)
 * Release 2 (due by Week 7)
