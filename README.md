@@ -97,13 +97,13 @@ If time permits, stretch goals are:
 * Create an application to showcase Upspin’s features (e.g. gmail plugins)
 
 ## 6. Release Planning
-* Release 1 (due by Week 5)
+* Release 1 (due by Week 5)   
   Ansible playbook with necessary infrastructure in MoC (e.g. authentication, instance management etc,.)
-* Release 2 (due by Week 7)
+* Release 2 (due by Week 7)   
   Deployed Upspin server on MoC
-* Release 3 (due by Week 9)
+* Release 3 (due by Week 9)   
   Ansible playbook that automate the configurations of Upspin server
-* Release 4 (due by Week 11)
+* Release 4 (due by Week 11)   
   UI for both admin user and end user
-* Release 5 (due by Week 13)
+* Release 5 (due by Week 13)   
   Implement future works as listed in future development
