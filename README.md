@@ -25,7 +25,7 @@ Our target user groups include:
 
 ### Minimum Value Product Features:
 * User Interface
-    + UI for admin user (invisible to end user):
+    + UI for server admin (invisible to end user):
         + Manage directory server and store server
         + Monitor server usage
     + UI for end user:
@@ -36,7 +36,7 @@ Our target user groups include:
 
 * Automation: 
      + Upspin server automatically set up by Ansible playbook on MOC
-     + Upspin monitored by admin user
+     + Upspin monitored by server admin
      + Infrastructures like computing instances and networking will be provisioned automatically
      + Automate configuration management, workflow & lifecycle orchestration, app deployment
 
@@ -87,7 +87,15 @@ Ansible, as part of our project, is a tool for provisioning the infrastructure a
   - Admin-User and End-User Authority: All admin-users are responsible for monitoring and managing resource allocation. Only the requested storage space and utilized storage will be available; details such as where exactly their data are allocated cannot be viewed. 
   - Realtime Database Updates: All end-user data, such as service requested and actually used, will be stored in DB, managed and updated either automatically or manually by admin-users.
 
-## 5. Risk identification
+## 5. Risk Identification
+
+* Major Concern
+  - Not enough customization for users
+    There will be limitations on automatic configuration, since users might have needs on options that requires specific customization.
+
+* Secondary Concerns
+  - Server stability
+  - Security concerns
 
 ## 6. Acceptance Criteria
 Minimum acceptance criteria is a deployed upspin server on MOC, configured by an Ansible playbook.   
@@ -106,8 +114,15 @@ If time permits, stretch goals are:
 * Release 3 (due by Week 9)   
   Ansible playbook that automate the configurations of Upspin server
 * Release 4 (due by Week 11)   
-  UI for both admin user and end user
+  UI for both server admin and end user
 * Release 5 (due by Week 13)   
   Implement future works as listed in future development
 
 ## References
+Upspin Architecture: https://upspin.io/doc/arch.md
+
+Upspin Server Setup: https://upspin.io/doc/server_setup.md
+
+Ansible Hands-on Introduction: http://people.redhat.com/mskinner/rhug/q2.2017/Ansible-Hands-on-Introduction.pdf
+
+Ansible Provisioning: https://www.ansible.com/use-cases/provisioning
