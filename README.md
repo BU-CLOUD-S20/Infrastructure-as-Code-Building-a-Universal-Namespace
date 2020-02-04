@@ -26,7 +26,7 @@ Our target user groups include:
 ### Minimum Value Product Features:
 * User Interface
     + UI for admin user (invisible to end user):
-        + Manage the container
+        + Manage directory server and store server
         + Monitor server usage
     + UI for end user:
         + Authentication
