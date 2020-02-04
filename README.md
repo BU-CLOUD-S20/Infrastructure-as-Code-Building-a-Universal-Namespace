@@ -87,7 +87,9 @@ Ansible, as part of our project, is a tool for provisioning the infrastructure a
   - Admin-User and End-User Authority: All admin-users are responsible for monitoring and managing resource allocation. Only the requested storage space and utilized storage will be available; details such as where exactly their data are allocated cannot be viewed. 
   - Realtime Database Updates: All end-user data, such as service requested and actually used, will be stored in DB, managed and updated either automatically or manually by admin-users.
 
-## 5. Acceptance Criteria
+## 5. Risk identification
+
+## 6. Acceptance Criteria
 Minimum acceptance criteria is a deployed upspin server on MOC, configured by an Ansible playbook.   
 If time permits, stretch goals are:
 
@@ -96,7 +98,7 @@ If time permits, stretch goals are:
 * Cross-cloud deployment (e.g. access files in Google Drive from Upspin deployed on MoC)
 * Create an application to showcase Upspin’s features (e.g. gmail plugins)
 
-## 6. Release Planning
+## 7. Release Planning
 * Release 1 (due by Week 5)   
   Ansible playbook with necessary infrastructure in MoC (e.g. authentication, instance management etc,.)
 * Release 2 (due by Week 7)   
@@ -107,3 +109,5 @@ If time permits, stretch goals are:
   UI for both admin user and end user
 * Release 5 (due by Week 13)   
   Implement future works as listed in future development
+
+## References
