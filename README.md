@@ -119,6 +119,7 @@ If time permits, stretch goals are:
   Implement future works as listed in future development
 
 ## References
+<<<<<<< HEAD
 Upspin Architecture: https://upspin.io/doc/arch.md
 
 Upspin Server Setup: https://upspin.io/doc/server_setup.md
@@ -126,3 +127,8 @@ Upspin Server Setup: https://upspin.io/doc/server_setup.md
 Ansible Hands-on Introduction: http://people.redhat.com/mskinner/rhug/q2.2017/Ansible-Hands-on-Introduction.pdf
 
 Ansible Provisioning: https://www.ansible.com/use-cases/provisioning
+=======
+* [Upspin](https://upspin.io/doc/)
+* [Ansible](https://docs.ansible.com/ansible/latest/user_guide/index.html)
+* [OpenStack](https://docs.openstack.org/train/)
+>>>>>>> 975a33b49a2c1843c3ac238be91edc3fef84d3ad
