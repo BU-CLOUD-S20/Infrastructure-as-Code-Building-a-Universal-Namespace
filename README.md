@@ -16,9 +16,9 @@ Further development:
 
 The IaC project aims to create an auto-setup service on the Massachusetts Open Cloud (MoC), which enable users to deploy an Upspin server without manually provisioning infrastructures.   
 Our target user groups include:
-* Server provider
+* Server provider   
   Upspin server providers who manage all the resources
-* End user
+* End user   
   Upspin server users who save/retrieve/share files with customized configurations
 
 ## 3. Scope and Features Of The Project
