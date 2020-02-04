@@ -111,3 +111,6 @@ If time permits, stretch goals are:
   Implement future works as listed in future development
 
 ## References
+* [Upspin](https://upspin.io/doc/)
+* [Ansible](https://docs.ansible.com/ansible/latest/user_guide/index.html)
+* [OpenStack](https://docs.openstack.org/train/)
