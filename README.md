@@ -11,6 +11,7 @@ In this project, we will create an ansible playbook that automates the setup of 
 * Create necessary infrastructure on MOC (OpenStack)
 * Build an operator on OpenShift
 * Deploy and configure Upspin
+* Use Ansible to automate Upspin setup
 
 Further development:
 
