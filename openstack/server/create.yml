@@ -4,6 +4,10 @@
 # You will need to provide all fields in vars/auth_vars.yml
 
 - hosts: localhost
+  vars_prompt:
+    - name: server_name
+      prompt: "What is the name of new server?"
+      private: no
 
   tasks:
 
@@ -15,7 +19,7 @@
     - name: Create a new server
       os_server:
         state: present
-        name: playbook_test
+        name: "{{ server_name}}"
         auth:
           auth_url: 'https://kaizen.massopen.cloud:13000/v3'
           username: "{{ auth_vars.username }}"
