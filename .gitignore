@@ -133,3 +133,6 @@ dmypy.json
 
 # MOC config
 clouds.yaml
+
+# MOC Authentication
+auth_vars.yml
