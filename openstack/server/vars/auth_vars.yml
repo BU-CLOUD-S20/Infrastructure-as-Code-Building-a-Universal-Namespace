@@ -1,0 +1,9 @@
+---
+# All private authentication variables
+
+username: ""
+password: ""
+project_name: ""
+client_id: ""
+client_secret: ""
+client_key: ""

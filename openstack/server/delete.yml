@@ -1,0 +1,36 @@
+---
+# This playbook will delete an instance
+# Running on local, using SSO authentication
+# You will need to provide all fields in vars/auth_vars.yml
+
+- hosts: localhost
+  vars_prompt:
+    - name: server_name
+      prompt: "Which server (name or ID) do you want to delete?"
+      private: no
+
+  tasks:
+
+    - name: Load private authentication varialbles
+      include_vars:
+        file: vars/auth_vars.yml
+        name: auth_vars
+
+    - name: Delete an instance by ID
+      os_server:
+        state: absent
+        name: "{{ server_name}}"
+        auth:
+          auth_url: 'https://kaizen.massopen.cloud:13000/v3'
+          username: "{{ auth_vars.username }}"
+          password: "{{ auth_vars.password }}"
+          project_name: "{{ auth_vars.project_name }}"
+          identity_provider: moc
+          protocol: openid
+          client_id: kaizen-client
+          client_secret: "{{ auth_vars.client_secret }}"
+          access_token_endpoint: 'https://sso.massopen.cloud/auth/realms/moc/protocol/openid-connect/token'
+          discovery_endpoint: 'https://sso.massopen.cloud/auth/realms/moc/.well-known/openid-configuration'
+          user_domain_name: ''
+          project_domain_name: Default
+        auth_type: v3oidcpassword
