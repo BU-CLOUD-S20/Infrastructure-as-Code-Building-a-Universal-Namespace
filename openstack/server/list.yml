@@ -32,7 +32,6 @@
         availability_zone: nova
         client_key: "{{ auth_vars.client_key }}"
         region_name: moc-kzn
-        cloud: openstack
         filters:
           vm_state: active
       register: result
