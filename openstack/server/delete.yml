@@ -4,6 +4,7 @@
 # You will need to provide all fields in vars/auth_vars.yml
 
 - hosts: localhost
+  connection: local
   vars_prompt:
     - name: server_name
       prompt: "Which server (name or ID) do you want to delete?"
@@ -13,7 +14,7 @@
 
     - name: Load private authentication varialbles
       include_vars:
-        file: vars/auth_vars.yml
+        file: ../vars/auth_vars.yml
         name: auth_vars
 
     - name: Delete an instance by ID

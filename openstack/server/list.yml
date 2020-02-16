@@ -4,12 +4,13 @@
 # You will need to provide all fields in vars/auth_vars.yml
 
 - hosts: localhost
+  connection: local
 
   tasks:
 
     - name: Load private authentication varialbles
       include_vars:
-        file: vars/auth_vars.yml
+        file: ../vars/auth_vars.yml
         name: auth_vars
 
     - name: List all servers
@@ -32,7 +33,6 @@
         availability_zone: nova
         client_key: "{{ auth_vars.client_key }}"
         region_name: moc-kzn
-        cloud: openstack
         filters:
           vm_state: active
       register: result
