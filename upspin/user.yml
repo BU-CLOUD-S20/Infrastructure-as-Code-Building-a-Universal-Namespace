@@ -1,24 +1,18 @@
 ---
 # This playbook will add an initial user on Upspin server
+# Default username is 'upspin'
+# Default password is 'upspin'
 
 - hosts: upspin
-  vars_prompt:
-    - name: key
-      prompt: "Please provide your public SSH key"
-      private: no
+  become: yes
+  become_user: root
 
   tasks:
 
-    - name: Add new user
-      shell: |
-        sudo su
-        useradd -m upspin
-        su upspin
-        cd $HOME
-        mkdir .ssh
-        chmod 0700 .ssh
-        echo "{{ key }}" > .ssh/authorized_keys
-        chmod 0600 .ssh/authorized_keys
-        mkdir -p upspin/letsencrypt
-      args:
-        executable: /bin/bash
+    - name: Add new user called upspin
+      user:
+        name: 'upspin'
+        password: 'upspin'
+        shell: '/bin/bash'
+        groups: 'sudo'
+        generate_ssh_key: yes

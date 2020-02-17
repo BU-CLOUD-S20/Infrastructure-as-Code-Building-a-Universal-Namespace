@@ -10,10 +10,10 @@ read domain
 echo "Please enter your email address:"
 read email
 upspin signup -server=${domain} ${email}
-upspin setupdomain -domain=${domain} > TXT_record
+upspin setupdomain -domain=${domain} > records.txt
 
 ## Get TXT record
-a=`grep 'upspin:' TXT_record`
+a=`grep 'upspin:' records.txt`
 declare -a arr
 index=0
 for i in $(echo ${a} | awk '{print $1,$2,$3,$4}')
