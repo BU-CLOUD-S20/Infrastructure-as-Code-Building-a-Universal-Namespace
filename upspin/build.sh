@@ -22,6 +22,7 @@ arr[$index]=${i}
 let "index+=1"
 done
 txt_record=${arr[3]}
+rm -f records.txt
 
 ## Create sub-domain
 echo "Please enter your ip address:"
@@ -43,6 +44,22 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/6c6c793898e1697f199bc56
 -H "Content-Type:application/json" \
 --data ${p1}${domain}${p2}${txt_record}${p3}
 
-## Setup server
-go get upspin.io/cmd/...
+## Build runnable binary
+go get 'upspin.io/cmd/...'
 GOOS=linux GOARCH=amd64 go build upspin.io/cmd/upspinserver
+scp upspinserver upspin@${domain}:upspinserver
+
+## Setup server
+echo "[Unit]
+Description=Upspin server
+
+[Service]
+ExecStart=/home/upspin/upspinserver
+User=upspin
+Group=upspin
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target" > /etc/systemd/system/upspinserver.service
+setcap cap_net_bind_service=+ep /home/upspin/upspinserver
+systemctl enable --now /etc/systemd/system/upspinserver.service
