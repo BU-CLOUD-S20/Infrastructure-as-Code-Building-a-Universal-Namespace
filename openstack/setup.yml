@@ -1,2 +1,11 @@
 ---
 # Setup necessary requirements
+
+- hosts: localhost
+  connection: local
+
+  tasks:
+
+    - name: Install Python packages
+      pip:
+        requirements: "{{ playbook_dir }}/requirements.txt"
