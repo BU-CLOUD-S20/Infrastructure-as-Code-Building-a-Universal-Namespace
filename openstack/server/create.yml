@@ -4,6 +4,7 @@
 # You will need to provide all fields in vars/auth_vars.yml
 
 - hosts: localhost
+  connection: local
   vars_prompt:
     - name: server_name
       prompt: "What is the name of new server?"
@@ -13,13 +14,13 @@
 
     - name: Load private authentication varialbles
       include_vars:
-        file: vars/auth_vars.yml
+        file: ../vars/auth_vars.yml
         name: auth_vars
 
     - name: Create a new server
       os_server:
         state: present
-        name: "{{ server_name}}"
+        name: "{{ server_name }}"
         auth:
           auth_url: 'https://kaizen.massopen.cloud:13000/v3'
           username: "{{ auth_vars.username }}"
@@ -27,7 +28,7 @@
           project_name: "{{ auth_vars.project_name }}"
           identity_provider: moc
           protocol: openid
-          client_id: kaizen-client
+          client_id: "{{ auth_vars.client_id }}"
           client_secret: "{{ auth_vars.client_secret }}"
           access_token_endpoint: 'https://sso.massopen.cloud/auth/realms/moc/protocol/openid-connect/token'
           discovery_endpoint: 'https://sso.massopen.cloud/auth/realms/moc/.well-known/openid-configuration'
