@@ -25,13 +25,17 @@ txt_record=${arr[3]}
 rm -f records.txt
 
 ## Create sub-domain
+echo "Please enter you DNS record zone ID:"
+read zone_id
+echo "Please enter your api token"
+read token
 echo "Please enter your ip address:"
 read ip_address
 p1='{"type":"A","name":"'
 p2='","content":"'
 p3='","ttl":120,"priority":10,"proxied":false}'
-curl -X POST "https://api.cloudflare.com/client/v4/zones/6c6c793898e1697f199bc5676c3ddeda/dns_records" \
--H "Authorization: Bearer hpkceho27CpiMbj5x-1FRiemifeVVwSby0mo5n-w" \
+curl -X POST "https://api.cloudflare.com/client/v4/zones/${zone_id}/dns_records" \
+-H "Authorization: Bearer ${token}" \
 -H "Content-Type:application/json" \
 --data ${p1}${domain}${p2}${ip_address}${p3}
 
@@ -39,8 +43,8 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/6c6c793898e1697f199bc56
 p1='{"type":"TXT","name":"'
 p2='","content":"'
 p3='","ttl":900,"priority":10,"proxied":false}'
-curl -X POST "https://api.cloudflare.com/client/v4/zones/6c6c793898e1697f199bc5676c3ddeda/dns_records" \
--H "Authorization: Bearer hpkceho27CpiMbj5x-1FRiemifeVVwSby0mo5n-w" \
+curl -X POST "https://api.cloudflare.com/client/v4/zones/${zone_id}/dns_records" \
+-H "Authorization: Bearer ${token}" \
 -H "Content-Type:application/json" \
 --data ${p1}${domain}${p2}${txt_record}${p3}
 
