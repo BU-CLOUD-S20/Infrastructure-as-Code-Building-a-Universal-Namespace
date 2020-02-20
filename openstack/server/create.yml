@@ -39,5 +39,6 @@
         key_name: "{{ auth_vars.client_key }}"
         region_name: moc-kzn
         auto_ip: false
+        security_groups: default,ssh
         interface: public
         flavor: m1.s2.medium

@@ -1,0 +1,18 @@
+---
+# This playbook will add an initial user on Upspin server
+# Default username is 'upspin'
+# Default password is 'upspin'
+
+- hosts: upspin
+  become: yes
+  become_user: root
+
+  tasks:
+
+    - name: Add new user called upspin
+      user:
+        name: 'upspin'
+        password: 'upspin'
+        shell: '/bin/bash'
+        groups: 'sudo'
+        generate_ssh_key: yes
