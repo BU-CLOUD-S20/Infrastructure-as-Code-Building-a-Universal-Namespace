@@ -1,8 +1,7 @@
 ---
 # This playbook will deploy a new Upspin server
 
-- hosts: localhost
-  connection: local
+- hosts: upspin
 
   tasks:
 

@@ -45,9 +45,7 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/6c6c793898e1697f199bc56
 --data ${p1}${domain}${p2}${txt_record}${p3}
 
 ## Build runnable binary
-go get 'upspin.io/cmd/...'
 GOOS=linux GOARCH=amd64 go build upspin.io/cmd/upspinserver
-scp upspinserver upspin@${domain}:upspinserver
 
 ## Setup server
 echo "[Unit]
