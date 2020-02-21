@@ -46,22 +46,7 @@ p3='","ttl":900,"priority":10,"proxied":false}'
 curl -X POST "https://api.cloudflare.com/client/v4/zones/${zone_id}/dns_records" \
 -H "Authorization: Bearer ${token}" \
 -H "Content-Type:application/json" \
---data ${p1}${domain}${p2}${txt_record}${p3}
 
 ## Build runnable binary
 GOOS=linux GOARCH=amd64 go build upspin.io/cmd/upspinserver
-
-## Setup server
-echo "[Unit]
-Description=Upspin server
-
-[Service]
-ExecStart=/home/upspin/upspinserver
-User=upspin
-Group=upspin
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target" > /etc/systemd/system/upspinserver.service
-setcap cap_net_bind_service=+ep /home/upspin/upspinserver
-systemctl enable --now /etc/systemd/system/upspinserver.service
+scp -i ~/.ssh/id_rsa upspinserver upspin@${domain}:upspinserver
