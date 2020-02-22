@@ -2,10 +2,25 @@
 # This playbook will deploy a new Upspin server
 
 - hosts: upspin
+  become: yes
+  become_method: sudo
+  become_user: root
 
   tasks:
 
-    - name: Create DNS
-      shell: "echo hello"
+    - name: Start Server
+      shell: |
+        GOOS=linux GOARCH=amd64 go build upspin.io/cmd/upspinserver
+        echo "[Unit]
+        Description=Upspin server
 
-    - name:
+        [Service]
+        ExecStart=/home/ubuntu/upspinserver
+        User=ubuntu
+        Group=ubuntu
+        Restart=on-failure
+
+        [Install]
+        WantedBy=multi-user.target" > /etc/systemd/system/upspinserver.service
+        setcap cap_net_bind_service=+ep /home/ubuntu/upspinserver
+        systemctl enable --now /etc/systemd/system/upspinserver.service

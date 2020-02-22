@@ -1,0 +1,15 @@
+---
+# Start server
+
+- hosts: localhost
+  connection: local
+
+  tasks:
+
+    - name: Load Upspin config varialbles
+      include_vars:
+        file: ../vars/config_vars.yml
+        name: config
+
+    - name: Start server
+      shell: "upspin setupserver --host={{ config.domain }} --domain={{ config.domain }}"
