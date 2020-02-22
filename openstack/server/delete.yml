@@ -20,7 +20,7 @@
     - name: Delete an instance by ID
       os_server:
         state: absent
-        name: "{{ server_name}}"
+        name: "{{ server_name }}"
         auth:
           auth_url: 'https://kaizen.massopen.cloud:13000/v3'
           username: "{{ auth_vars.username }}"
@@ -28,7 +28,7 @@
           project_name: "{{ auth_vars.project_name }}"
           identity_provider: moc
           protocol: openid
-          client_id: kaizen-client
+          client_id: "{{ auth_vars.client_id }}"
           client_secret: "{{ auth_vars.client_secret }}"
           access_token_endpoint: 'https://sso.massopen.cloud/auth/realms/moc/protocol/openid-connect/token'
           discovery_endpoint: 'https://sso.massopen.cloud/auth/realms/moc/.well-known/openid-configuration'
