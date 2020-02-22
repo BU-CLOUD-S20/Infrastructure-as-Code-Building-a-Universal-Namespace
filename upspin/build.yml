@@ -1,0 +1,21 @@
+---
+# This playbook will create a new Upspin account and also DNS records
+
+- hosts: localhost
+  connection: local
+  become: yes
+  become_method: sudo
+
+  tasks:
+
+    - name: Load Upspin config varialbles
+      include_vars:
+        file: ../vars/config_vars.yml
+        name: config
+
+    - name: Set up new Upspin server
+      shell: sh build_local.sh -d {{ config.domain }} -e {{ config.email }} \
+             -i {{ config.ip }} -z {{ config.zone }} -t {{ config.token }}
+      args:
+        executable: /bin/sh
+
