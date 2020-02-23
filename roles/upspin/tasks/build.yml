@@ -11,7 +11,7 @@
         file: ../vars/config_vars.yml
         name: config
 
-    - name: Set up new Upspin server
+    - name: Set up new Upspin tasks
       shell: sh build.sh -d {{ config.domain }} -e {{ config.email }} \
              -i {{ config.ip }} -z {{ config.zone }} -t {{ config.token }}
       args:

@@ -1,5 +1,5 @@
 ---
-# This playbook will deploy a new Upspin server
+# This playbook will deploy a new Upspin tasks
 
 - hosts: upspin
   become: yes

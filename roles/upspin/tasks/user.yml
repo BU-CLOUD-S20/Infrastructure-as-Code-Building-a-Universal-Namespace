@@ -1,5 +1,5 @@
 ---
-# This playbook will add an initial user on Upspin server
+# This playbook will add an initial user on Upspin tasks
 # Default username is 'upspin'
 # Default password is 'upspin'
 
