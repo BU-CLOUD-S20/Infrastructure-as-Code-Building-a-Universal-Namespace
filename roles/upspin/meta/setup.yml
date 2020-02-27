@@ -1,12 +1,10 @@
 ---
-# This playbook will setup all requirements of Upspin
+# Install Golang
 
 - hosts: upspin
-  become: yes
-  become_method: sudo
-  become_user: root
 
-  tasks:
-
-    - name: Install Golang environment
-      shell: "apt install golang-go"
+  task:
+    - name: Install Go Environment
+      apt:
+        name: golang-go
+        state: latest
