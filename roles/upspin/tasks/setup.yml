@@ -1,0 +1,10 @@
+---
+# Install Golang
+
+- hosts: upspin
+
+  task:
+    - name: Install Go Environment
+      apt:
+        name: golang-go
+        state: latest

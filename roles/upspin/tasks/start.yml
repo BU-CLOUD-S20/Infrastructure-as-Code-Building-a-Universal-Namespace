@@ -1,8 +1,7 @@
 ---
 # Start tasks
 
-- hosts: localhost
-  connection: local
+- hosts: upspin
 
   tasks:
 
