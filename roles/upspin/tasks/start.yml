@@ -10,5 +10,22 @@
         file: ../vars/config_vars.yml
         name: config
 
-    - name: Start tasks
+    - name: System service configuration
+        shell: |
+          GOOS=linux GOARCH=amd64 go build upspin.io/cmd/upspinserver
+          echo "[Unit]
+          Description=Upspin server
+
+          [Service]
+          ExecStart=/home/ubuntu/upspinserver
+          User=ubuntu
+          Group=ubuntu
+          Restart=on-failure
+
+          [Install]
+          WantedBy=multi-user.target" > /etc/systemd/system/upspinserver.service
+          setcap cap_net_bind_service=+ep /home/ubuntu/upspinserver
+          systemctl enable --now /etc/systemd/system/upspinserver.service
+
+    - name: Start Upspin server
       shell: "upspin setupserver --host={{ config.domain }} --domain={{ config.domain }}"

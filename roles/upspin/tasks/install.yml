@@ -1,0 +1,15 @@
+---
+# Install Golang and Upspin on server
+
+- hosts: upspin
+
+  task:
+    - name: Install Go Environment
+      apt:
+        name: golang-go
+        state: latest
+
+    - name: Install Upspin package
+      shell: |
+        wget https://upspin.io/dl/upspin.darwin_amd64.tar.gz
+        tar -C /usr/local/bin -xzf upspin.darwin_amd64.tar.gz
