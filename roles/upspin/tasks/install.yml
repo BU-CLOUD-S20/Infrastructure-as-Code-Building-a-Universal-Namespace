@@ -1,0 +1,21 @@
+---
+# Install Golang and Upspin on server
+# Install Upspin is not required now because
+# we assume user have already installed Upspin locally
+
+- hosts: upspin
+  become: yes
+  become_method: sudo
+
+  tasks:
+
+    - name: Install Go Environment
+      apt:
+        name: golang-go
+        state: latest
+
+#    - name: Install Upspin package
+#
+#      shell: |
+#        wget https://upspin.io/dl/upspin.linux_amd64.tar.gz
+#        tar -C /usr/local/bin -xzf upspin.linux_amd64.tar.gz

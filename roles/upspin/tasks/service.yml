@@ -1,16 +1,23 @@
 ---
-# This playbook will deploy a new Upspin tasks
+# Config Upspin system services
 
 - hosts: upspin
-  become: yes
-  become_method: sudo
-  become_user: root
 
   tasks:
 
-    - name: Start Server
+    - name: Load Upspin config varialbles
+      include_vars:
+        file: ../vars/config_vars.yml
+        name: config
+
+    - name: Copy local binary file to remote
+      copy:
+        src: ~/go/src/upspinserver
+        dest: $HOME/upspinserver
+        mode: preserve
+
+    - name: System service configuration
       shell: |
-        GOOS=linux GOARCH=amd64 go build upspin.io/cmd/upspinserver
         echo "[Unit]
         Description=Upspin server
 
@@ -24,3 +31,5 @@
         WantedBy=multi-user.target" > /etc/systemd/system/upspinserver.service
         setcap cap_net_bind_service=+ep /home/ubuntu/upspinserver
         systemctl enable --now /etc/systemd/system/upspinserver.service
+      become: yes
+      become_method: sudo

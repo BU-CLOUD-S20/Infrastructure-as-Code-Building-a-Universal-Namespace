@@ -1,0 +1,8 @@
+---
+# Start an Upspin server
+
+# - include: install.yml
+- include: dns.yml
+- include: build.yml
+- include: service.yml
+- include: start.yml
