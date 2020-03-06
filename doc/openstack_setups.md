@@ -6,7 +6,7 @@
 ## Configuration:
 * /etc/ansible/hosts   
 Provide your server ips in hosts file, an example can be:
-    ```
+    ```ini
     127.0.0.1
 
     [upspin]
@@ -14,7 +14,7 @@ Provide your server ips in hosts file, an example can be:
     ```
 * roles/openstack/vars/auth_vars.yml   
 Create a `auth_vars.yml` file to provide required SSO authentication vars for OpenStack platform, as the following format:
-    ```
+    ```yml
     ---
     # All private authentication variables
 
@@ -27,7 +27,7 @@ Create a `auth_vars.yml` file to provide required SSO authentication vars for Op
     ```
 * roles/upspin/vars/config_vars.yml   
 Create a `config_vars.yml` file to provide all necessary configurations for an Upspin server, as the following format:
-    ```
+    ```yml
     ---
     # All configuration variables for an Upspin tasks
 
