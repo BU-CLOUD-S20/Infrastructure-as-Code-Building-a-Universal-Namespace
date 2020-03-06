@@ -10,4 +10,4 @@
       shell: |
         go get upspin.io/cmd/...
         cd ~/go/src
-        go build upspin.io/cmd/upspinserver
+        GOOS=linux GOARCH=amd64 go build upspin.io/cmd/upspinserver

@@ -14,6 +14,7 @@
       copy:
         src: ~/go/src/upspinserver
         dest: $HOME/upspinserver
+        mode: preserve
 
     - name: System service configuration
       shell: |
@@ -21,7 +22,7 @@
         Description=Upspin server
 
         [Service]
-        ExecStart=$HOME/upspinserver
+        ExecStart=/home/ubuntu/upspinserver
         User=ubuntu
         Group=ubuntu
         Restart=on-failure
