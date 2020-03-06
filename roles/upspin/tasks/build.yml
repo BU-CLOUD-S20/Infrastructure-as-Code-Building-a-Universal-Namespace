@@ -1,0 +1,13 @@
+---
+# Build Upspin binary
+
+- hosts: localhost
+  connection: local
+
+  tasks:
+
+    - name: Build Upspin binary
+      shell: |
+        go get upspin.io/cmd/...
+        cd ~/go/src
+        go build upspin.io/cmd/upspinserver
