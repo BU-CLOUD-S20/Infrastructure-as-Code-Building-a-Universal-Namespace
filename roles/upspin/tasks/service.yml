@@ -30,6 +30,13 @@
         [Install]
         WantedBy=multi-user.target" > /etc/systemd/system/upspinserver.service
         setcap cap_net_bind_service=+ep /home/ubuntu/upspinserver
-        systemctl enable --now /etc/systemd/system/upspinserver.service
+      become: yes
+      become_method: sudo
+
+    - name: Enable upspin system service
+      systemd:
+        name: upspinserver
+        state: started
+        no_block: yes
       become: yes
       become_method: sudo
