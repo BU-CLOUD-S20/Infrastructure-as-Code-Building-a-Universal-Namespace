@@ -13,3 +13,8 @@
 
     - name: Start Upspin server
       shell: upspin setupserver --host="{{config.domain}}.{{config.zone}}" --domain="{{config.domain}}.{{config.zone}}"
+      register: result
+      until: result.rc == 0
+      retries: 10
+      delay: 2
+      ignore_errors: yes
