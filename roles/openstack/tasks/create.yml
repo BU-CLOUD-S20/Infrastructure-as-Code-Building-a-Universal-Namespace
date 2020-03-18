@@ -5,10 +5,6 @@
 
 - hosts: localhost
   connection: local
-  vars_prompt:
-    - name: server_name
-      prompt: "What is the name of new server?"
-      private: no
 
   tasks:
 
@@ -20,7 +16,7 @@
     - name: Create a new server
       os_server:
         state: present
-        name: "{{ server_name }}"
+        name: upspin
         auth:
           auth_url: 'https://kaizen.massopen.cloud:13000/v3'
           username: "{{ auth_vars.username }}"
@@ -42,3 +38,10 @@
         security_groups: default,ssh,upspin
         interface: public
         flavor: m1.s2.medium
+      register: result
+
+    - name: Add new IP to hosts
+      add_host:
+        groups: upspin
+        name: "{{ result.server.interface_ip }}"
+        ansible_user: ubuntu
