@@ -1,5 +1,5 @@
 ---
 # Setup a new server on OpenStack
 
-- include: setup.yml
-- include: create.yml
+- import_playbook: setup.yml
+- import_playbook: create.yml
