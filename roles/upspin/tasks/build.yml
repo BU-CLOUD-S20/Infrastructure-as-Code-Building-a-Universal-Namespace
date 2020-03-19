@@ -1,19 +1,13 @@
 ---
-# This playbook will create a new Upspin account and also DNS records
+# Build Upspin binary
 
 - hosts: localhost
   connection: local
 
   tasks:
 
-    - name: Load Upspin config varialbles
-      include_vars:
-        file: ../vars/config_vars.yml
-        name: config
-
-    - name: Set up new Upspin tasks
-      shell: sh build.sh -d {{ config.domain }} -e {{ config.email }} \
-             -i {{ config.ip }} -z {{ config.zone }} -t {{ config.token }}
-      args:
-        executable: /bin/sh
-
+    - name: Build Upspin binary
+      shell: |
+        go get upspin.io/cmd/...
+        cd ~/go/src
+        GOOS=linux GOARCH=amd64 go build upspin.io/cmd/upspinserver

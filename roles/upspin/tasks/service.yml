@@ -1,0 +1,42 @@
+---
+# Config Upspin system services
+
+- hosts: upspin
+
+  tasks:
+
+    - name: Load Upspin config varialbles
+      include_vars:
+        file: ../vars/config_vars.yml
+        name: config
+
+    - name: Copy local binary file to remote
+      copy:
+        src: ~/go/src/upspinserver
+        dest: $HOME/upspinserver
+        mode: preserve
+
+    - name: System service configuration
+      shell: |
+        echo "[Unit]
+        Description=Upspin server
+
+        [Service]
+        ExecStart=/home/ubuntu/upspinserver
+        User=ubuntu
+        Group=ubuntu
+        Restart=on-failure
+
+        [Install]
+        WantedBy=multi-user.target" > /etc/systemd/system/upspinserver.service
+        setcap cap_net_bind_service=+ep /home/ubuntu/upspinserver
+      become: yes
+      become_method: sudo
+
+    - name: Enable upspin system service
+      systemd:
+        name: upspinserver
+        state: started
+        no_block: yes
+      become: yes
+      become_method: sudo

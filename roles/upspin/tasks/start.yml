@@ -1,7 +1,8 @@
 ---
-# Start tasks
+# Start Upspin server
 
-- hosts: upspin
+- hosts: localhost
+  connection: local
 
   tasks:
 
@@ -10,5 +11,10 @@
         file: ../vars/config_vars.yml
         name: config
 
-    - name: Start tasks
-      shell: "upspin setupserver --host={{ config.domain }} --domain={{ config.domain }}"
+    - name: Start Upspin server
+      shell: upspin setupserver --host="{{config.domain}}.{{config.zone}}" --domain="{{config.domain}}.{{config.zone}}"
+      register: result
+      until: result.rc == 0
+      retries: 10
+      delay: 2
+      ignore_errors: yes

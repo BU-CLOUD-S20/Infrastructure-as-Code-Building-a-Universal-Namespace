@@ -38,7 +38,7 @@
         image: Ubuntu 16 LTS
         key_name: "{{ auth_vars.client_key }}"
         region_name: moc-kzn
-        auto_ip: false
-        security_groups: default,ssh
+        auto_ip: true
+        security_groups: default,ssh,upspin
         interface: public
         flavor: m1.s2.medium

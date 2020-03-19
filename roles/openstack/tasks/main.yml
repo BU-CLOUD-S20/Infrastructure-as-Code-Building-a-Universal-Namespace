@@ -1,0 +1,5 @@
+---
+# Setup a new server on OpenStack
+
+- include: setup.yml
+- include: create.yml
