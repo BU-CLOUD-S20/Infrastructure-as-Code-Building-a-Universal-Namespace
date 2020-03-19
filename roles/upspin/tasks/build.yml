@@ -1,13 +1,8 @@
 ---
 # Build Upspin binary
 
-- hosts: localhost
-  connection: local
-
-  tasks:
-
-    - name: Build Upspin binary
-      shell: |
-        go get upspin.io/cmd/...
-        cd ~/go/src
-        GOOS=linux GOARCH=amd64 go build upspin.io/cmd/upspinserver
+- name: Build Upspin binary
+  shell: |
+    go get upspin.io/cmd/...
+    cd ~/go/src
+    GOOS=linux GOARCH=amd64 go build upspin.io/cmd/upspinserver

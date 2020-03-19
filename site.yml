@@ -1,2 +1,13 @@
 ---
 # This playbook will set up Upspin server on OpenStack platform
+
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+
+    - import_role:
+        name: openstack
+    - import_role:
+        name: upspin

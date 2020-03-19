@@ -1,20 +1,15 @@
 ---
 # Start Upspin server
 
-- hosts: localhost
-  connection: local
+- name: Load Upspin config varialbles
+  include_vars:
+    file: ../vars/config_vars.yml
+    name: config
 
-  tasks:
-
-    - name: Load Upspin config varialbles
-      include_vars:
-        file: ../vars/config_vars.yml
-        name: config
-
-    - name: Start Upspin server
-      shell: upspin setupserver --host="{{config.domain}}.{{config.zone}}" --domain="{{config.domain}}.{{config.zone}}"
-      register: result
-      until: result.rc == 0
-      retries: 10
-      delay: 2
-      ignore_errors: yes
+- name: Start Upspin server
+  shell: upspin setupserver --host="{{config.domain}}.{{config.zone}}" --domain="{{config.domain}}.{{config.zone}}"
+  register: result
+  until: result.rc == 0
+  retries: 10
+  delay: 2
+  ignore_errors: yes
