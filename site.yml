@@ -3,6 +3,7 @@
 
 - hosts: localhost
   connection: local
+  remote_user: ubuntu
   gather_facts: false
 
   tasks:

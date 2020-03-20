@@ -1,11 +1,6 @@
 ---
 # Start Upspin server
 
-- name: Load Upspin config varialbles
-  include_vars:
-    file: ../vars/config_vars.yml
-    name: config
-
 - name: Start Upspin server
   shell: upspin setupserver --host="{{config.domain}}.{{config.zone}}" --domain="{{config.domain}}.{{config.zone}}"
   register: result

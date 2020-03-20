@@ -40,3 +40,8 @@
     name: upspin
     ansible_host: "{{ server.openstack.interface_ip }}"
     ansible_user: ubuntu
+
+- name: Add SSH host key validation
+  shell: "sleep 5; ssh-keyscan -H {{ server.openstack.interface_ip }} >> ~/.ssh/known_hosts"
+  async: 0
+  poll: 0
