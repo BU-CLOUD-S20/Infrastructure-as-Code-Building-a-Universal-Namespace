@@ -1,8 +1,8 @@
 ---
 # Start an Upspin server
 
-# - include: install.yml
-- import_playbook: dns.yml
-- import_playbook: build.yml
-- import_playbook: service.yml
-- import_playbook: start.yml
+# - include: test.yml
+- include: dns.yml
+- include: build.yml
+- include: service.yml
+- include: start.yml
