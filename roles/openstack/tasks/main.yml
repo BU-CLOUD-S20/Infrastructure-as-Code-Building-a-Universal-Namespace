@@ -2,4 +2,5 @@
 # Setup a new server on OpenStack
 
 - include: setup.yml
+- include: security.yml
 - include: create.yml
