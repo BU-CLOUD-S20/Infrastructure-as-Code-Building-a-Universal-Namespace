@@ -41,7 +41,11 @@
     ansible_host: "{{ server.openstack.interface_ip }}"
     ansible_user: ubuntu
 
+- name: Wait for port 22 of Upspin to open active connections
+  wait_for:
+    host: "{{ server.openstack.interface_ip }}"
+    port: 22
+    delay: 10
+
 - name: Add SSH host key validation
-  shell: "sleep 5; ssh-keyscan -H {{ server.openstack.interface_ip }} >> ~/.ssh/known_hosts"
-  async: 0
-  poll: 0
+  shell: "ssh-keyscan -H {{ server.openstack.interface_ip }} >> ~/.ssh/known_hosts"
