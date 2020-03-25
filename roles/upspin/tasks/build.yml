@@ -6,3 +6,4 @@
     go get upspin.io/cmd/...
     cd ~/go/src
     GOOS=linux GOARCH=amd64 go build upspin.io/cmd/upspinserver
+  delegate_to: localhost

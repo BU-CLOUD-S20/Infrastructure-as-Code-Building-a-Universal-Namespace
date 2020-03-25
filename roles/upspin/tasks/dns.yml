@@ -5,6 +5,7 @@
   include_vars:
     file: ../vars/config_vars.yml
     name: config
+  delegate_to: localhost
 
 - name: Get TXT record
   shell: |
@@ -21,6 +22,7 @@
     rm records.txt
     echo ${txt_record}
   register: result
+  delegate_to: localhost
 
 - name: Add a TXT record
   cloudflare_dns:
@@ -31,13 +33,15 @@
     account_email: "{{ config.account_email }}"
     account_api_token: "{{ config.token }}"
     state: present
+  delegate_to: localhost
 
 - name: Add an A record
   cloudflare_dns:
     zone: "{{ config.zone }}"
     record: "{{ config.domain }}"
     type: A
-    value: "{{ server.openstack.interface_ip }}"
+    value: "{{ ansible_host }}"
     account_email: "{{ config.account_email }}"
     account_api_token: "{{ config.token }}"
     state: present
+  delegate_to: localhost

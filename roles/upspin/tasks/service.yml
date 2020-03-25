@@ -6,7 +6,6 @@
     src: ~/go/src/upspinserver
     dest: $HOME/upspinserver
     mode: preserve
-  delegate_to: upspin
 
 - name: System service configuration
   shell: |
@@ -22,7 +21,6 @@
     [Install]
     WantedBy=multi-user.target" > /etc/systemd/system/upspinserver.service
     setcap cap_net_bind_service=+ep /home/ubuntu/upspinserver
-  delegate_to: upspin
   become: yes
   become_method: sudo
 
@@ -31,6 +29,5 @@
     name: upspinserver
     state: started
     no_block: yes
-  delegate_to: upspin
   become: yes
   become_method: sudo

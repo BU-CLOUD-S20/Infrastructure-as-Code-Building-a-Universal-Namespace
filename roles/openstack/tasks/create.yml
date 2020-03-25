@@ -40,6 +40,7 @@
     name: upspin
     ansible_host: "{{ server.openstack.interface_ip }}"
     ansible_user: ubuntu
+    ansible_python_interpreter: /usr/bin/python3
 
 - name: Wait for port 22 of Upspin to open active connections
   wait_for:
