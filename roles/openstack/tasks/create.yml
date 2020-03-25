@@ -3,11 +3,6 @@
 # Running on local, using SSO authentication
 # You will need to provide all fields in vars/auth_vars.yml
 
-- name: Load private authentication varialbles
-  include_vars:
-    file: ../vars/auth_vars.yml
-    name: auth_vars
-
 - name: Create a new server
   os_server:
     state: present
