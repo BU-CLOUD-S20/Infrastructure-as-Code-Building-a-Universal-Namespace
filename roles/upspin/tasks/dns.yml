@@ -1,48 +1,47 @@
 ---
 # This playbook will create a new Upspin account and also DNS records
 
-- hosts: localhost
-  connection: local
+- name: Load Upspin config varialbles
+  include_vars:
+    file: ../vars/config_vars.yml
+    name: config
+  delegate_to: localhost
 
-  tasks:
+- name: Get TXT record
+  shell: |
+    upspin setupdomain -domain={{ config.domain }}.{{ config.zone }} > records.txt
+    a=`grep 'upspin:' records.txt`
+    declare -a arr
+    index=0
+    for i in $(echo ${a} | awk '{print $1,$2,$3,$4}')
+    do
+    arr[$index]=${i}
+    let "index+=1"
+    done
+    txt_record=${arr[3]}
+    rm records.txt
+    echo ${txt_record}
+  register: result
+  delegate_to: localhost
 
-    - name: Load Upspin config varialbles
-      include_vars:
-        file: ../vars/config_vars.yml
-        name: config
+- name: Add a TXT record
+  cloudflare_dns:
+    zone: "{{ config.zone }}"
+    record: "{{ config.domain }}"
+    type: TXT
+    value: "{{ result.stdout }}"
+    account_email: "{{ config.account_email }}"
+    account_api_token: "{{ config.token }}"
+    state: present
+  delegate_to: localhost
 
-    - name: Get TXT record
-      shell: |
-        upspin setupdomain -domain={{ config.domain }}.{{ config.zone }} > records.txt
-        a=`grep 'upspin:' records.txt`
-        declare -a arr
-        index=0
-        for i in $(echo ${a} | awk '{print $1,$2,$3,$4}')
-        do
-        arr[$index]=${i}
-        let "index+=1"
-        done
-        txt_record=${arr[3]}
-        rm records.txt
-        echo ${txt_record}
-      register: result
-
-    - name: Add a TXT record
-      cloudflare_dns:
-        zone: "{{ config.zone }}"
-        record: "{{ config.domain }}"
-        type: TXT
-        value: "{{ result.stdout }}"
-        account_email: "{{ config.account_email }}"
-        account_api_token: "{{ config.token }}"
-        state: present
-
-    - name: Add an A record
-      cloudflare_dns:
-        zone: "{{ config.zone }}"
-        record: "{{ config.domain }}"
-        type: A
-        value: "{{ config.ip }}"
-        account_email: "{{ config.account_email }}"
-        account_api_token: "{{ config.token }}"
-        state: present
+- name: Add an A record
+  cloudflare_dns:
+    zone: "{{ config.zone }}"
+    record: "{{ config.domain }}"
+    type: A
+    value: "{{ ansible_host }}"
+    account_email: "{{ config.account_email }}"
+    account_api_token: "{{ config.token }}"
+    state: present
+  delegate_to: localhost
