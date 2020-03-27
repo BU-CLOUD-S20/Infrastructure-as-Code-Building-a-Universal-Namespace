@@ -1,11 +1,19 @@
 ---
 # Start Upspin server
 
+- name: Wait for port 443 to open
+  wait_for:
+    host: "{{ ansible_host }}"
+    port: 443
+    delay: 10
+  delegate_to: localhost
+
+- name: Wait for port 80
+  wait_for:
+    host: "{{ ansible_host }}"
+    port: 80
+  delegate_to: localhost
+
 - name: Start Upspin server
   shell: upspin setupserver --host="{{config.domain}}.{{config.zone}}" --domain="{{config.domain}}.{{config.zone}}"
-  register: result
-  until: result.rc == 0
-  retries: 5
-  delay: 5
-  ignore_errors: yes
   delegate_to: localhost

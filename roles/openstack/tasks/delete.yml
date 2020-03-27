@@ -21,17 +21,5 @@
       os_server:
         state: absent
         name: "{{ server_name }}"
-        auth:
-          auth_url: 'https://kaizen.massopen.cloud:13000/v3'
-          username: "{{ auth_vars.username }}"
-          password: "{{ auth_vars.password }}"
-          project_name: "{{ auth_vars.project_name }}"
-          identity_provider: moc
-          protocol: openid
-          client_id: "{{ auth_vars.client_id }}"
-          client_secret: "{{ auth_vars.client_secret }}"
-          access_token_endpoint: 'https://sso.massopen.cloud/auth/realms/moc/protocol/openid-connect/token'
-          discovery_endpoint: 'https://sso.massopen.cloud/auth/realms/moc/.well-known/openid-configuration'
-          user_domain_name: ''
-          project_domain_name: Default
+        auth: "{{ auth_vars.auth }}"
         auth_type: v3oidcpassword

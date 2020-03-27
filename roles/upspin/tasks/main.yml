@@ -1,7 +1,6 @@
 ---
 # Start an Upspin server
 
-# - include: test.yml
 - include: dns.yml
 - include: build.yml
 - include: service.yml
