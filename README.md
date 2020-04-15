@@ -9,7 +9,7 @@
 In this project, we will create an ansible playbook that automates the setup of an Upspin server on the Massachusetts Open Cloud. We mainly focus on:
 
 * Create necessary infrastructure on MOC (OpenStack)
-* Build an operator on OpenShift
+* Use docker image to deploy Upspin on OpenShift
 * Deploy and configure Upspin
 * Use Ansible to automate Upspin setup
 
@@ -113,15 +113,30 @@ If time permits, stretch goals are:
 * Create an application to showcase Upspin’s features (e.g. gmail plugins)
 
 ## 7. Release Planning
-* Release 1 (due by Week 5)   
+* Release 1 (due by Week 5)
+
+  [Demo1](https://docs.google.com/presentation/d/1zNnP6OkI4NMDZuPKl3dQNuUWyhNrMRnywgBcSJUd7_U) 
+  
   Ansible playbook with necessary infrastructure in MOC (e.g. authentication, instance management etc,.)
-* Release 2 (due by Week 7)   
+* Release 2 (due by Week 7) 
+
+  [Demo2](https://docs.google.com/presentation/d/1w_n4y99QZe2VVN9qeA4BEZum3VUbWpFwEDdrX7UvDFE)  
+  
   Deployed Upspin server on MOC
-* Release 3 (due by Week 9)   
+* Release 3 (due by Week 9)
+
+  [Demo3](https://docs.google.com/presentation/d/1Ufb6Qv-JrNkzeQTv05IKW5BsKxRxs5i_ug7SV_xnYas)  
+  
   Ansible playbook that automate the configurations of Upspin server
 * Release 4 (due by Week 11)   
-  UI for both server admin and end user
-* Release 5 (due by Week 13)   
+
+  [Demo4](https://docs.google.com/presentation/d/18dvctHLd51uFD5g864v6ZzLd5nr_rCYyJltLJZ9oZ70)
+  
+  Upspin deployment using Openshift
+* Release 5 (due by Week 13)
+
+  [Demo5](https://docs.google.com/presentation/d/1niz41vEIwC5mgnM38fTNgtGX_oUmGTlhBnhTwuxdUMo)   
+  
   Implement future works as listed in future development
 
 ## References
