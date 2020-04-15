@@ -115,7 +115,7 @@ If time permits, stretch goals are:
 ## 7. Release Planning
 * Release 1 (due by Week 5)
 
-  [Demo1](https://docs.google.com/presentation/d/1zNnP6OkI4NMDZuPKl3dQNuUWyhNrMRnywgBcSJUd7_U/edit#slide=id.gc6f73a04f_0_0) 
+  [Demo1](https://docs.google.com/presentation/d/1zNnP6OkI4NMDZuPKl3dQNuUWyhNrMRnywgBcSJUd7_U) 
   
   Ansible playbook with necessary infrastructure in MOC (e.g. authentication, instance management etc,.)
 * Release 2 (due by Week 7) 
