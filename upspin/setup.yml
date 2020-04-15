@@ -1,0 +1,10 @@
+---
+# This playbook will setup all requirements of Upspin
+
+- hosts: upspin
+  become: yes
+  become_user: root
+
+  tasks:
+
+    - name: Install Golang environment

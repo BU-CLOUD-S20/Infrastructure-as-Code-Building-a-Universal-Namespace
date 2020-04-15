@@ -1,0 +1,11 @@
+---
+# This playbook will deploy a new Upspin server
+
+- hosts: upspin
+
+  tasks:
+
+    - name: Create DNS
+      shell: "echo hello"
+
+    - name:
