@@ -4,6 +4,16 @@
 
 **Mentored by Patrick Dillon**
 
+## Final Deliverables
+- **Minimum Viable Product**: A set of organized playbooks that automatically deploy Upspin on MOC
+  + Installation instruction:
+  + Clone this repository
+  + Refer to [this link](./doc/openstack_setups.md) for installation instruction 
+- A video presentation
+  + Presentation linked [here]()
+  + Slides linked [here]()
+
+
 ## 1. Vision and Goals Of The Project
 
 In this project, we will create an ansible playbook that automates the setup of an Upspin server on the Massachusetts Open Cloud. We mainly focus on:
