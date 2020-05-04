@@ -4,21 +4,35 @@
 
 **Mentored by Patrick Dillon**
 
+## Final Deliverables
+- A video presentation
+  + Presentation linked [here](https://www.youtube.com/watch?v=UXmL-Ll2sHI&feature=youtu.be)
+  + Slides linked [here](https://docs.google.com/presentation/d/1PSZz1MIJzuXC3-Sa0DIfS2ucxKkK4nfCtG7tOHgY0P4/edit?usp=sharing)
+- **Minimum Viable Product**: A set of organized playbooks that automatically deploy Upspin on MOC
+  + Installation instruction:
+  + Clone this repository
+  + Refer to [this link](./doc/openstack_setups.md) for installation instruction 
+
+
 ## 1. Vision and Goals Of The Project
+**Deploy a global naming system using the idea of IaC (Infrastructure as Code)**
 
-In this project, we will create an ansible playbook that automates the setup of an Upspin server on the Massachusetts Open Cloud. We mainly focus on:
+**IaC:**
+Manage and provision infrastructures through definition files, rather than physical hardware configuration or interactive configuration tools
 
-* Create necessary infrastructure on MOC (OpenStack)
-* Use docker image to deploy Upspin on OpenShift
-* Deploy and configure Upspin
-* Use Ansible to automate Upspin setup
+**Upspin: a global naming system**
+A framework for naming and sharing files and other data securely, uniformly, and globally
 
-Further development:
-
-* Create an application to scale either servers or storage based on playbook
-* Use an external storage volume on MoC
-* Cross-cloud deployment, e.g. access files in Google Drive from Upspin deployed on MoC
-* Create an application or use that showcases Upspin's features 
+**Automatically provision Upspin server on OpenStack & OpenShift**
+- OpenStack:
+  + Use Ansible playbooks for automation
+  + Create instance on OpenStack
+  + Configure the instance
+  + Deploy Upspin server
+- OpenShift:
+  + Use Dockerfile and necessary scripts
+  + Create container with correct configurations 
+  + Deploy Upspin in the container
 
 ## 2. Users/Personas Of The Project
 
