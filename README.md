@@ -30,13 +30,13 @@ This project is to automatically deploy a global naming system called [Upspin](h
 
 ## Project Documentation
 Table of content:
-* [1. Vision and Goals Of The Project](https://github.com/BU-CLOUD-S20/Infrastructure-as-Code-Building-a-Universal-Namespace#1-vision-and-goals-of-the-project)
-* [2. Users/Personas Of The Project](https://github.com/BU-CLOUD-S20/Infrastructure-as-Code-Building-a-Universal-Namespace#2-userspersonas-of-the-project)
-* [3. Scope and Features Of The Project](https://github.com/BU-CLOUD-S20/Infrastructure-as-Code-Building-a-Universal-Namespace#3-scope-and-features-of-the-project)
-* [4. Solution Concept](https://github.com/BU-CLOUD-S20/Infrastructure-as-Code-Building-a-Universal-Namespace#4-solution-concept)
-* [5. Risk Identification](https://github.com/BU-CLOUD-S20/Infrastructure-as-Code-Building-a-Universal-Namespace#5-risk-identification)
-* [6. Acceptance Criteria](https://github.com/BU-CLOUD-S20/Infrastructure-as-Code-Building-a-Universal-Namespace#6-acceptance-criteria)
-* [7. Release Planning](https://github.com/BU-CLOUD-S20/Infrastructure-as-Code-Building-a-Universal-Namespace#7-release-planning)
+* [1. Vision and Goals Of The Project](#1-vision-and-goals-of-the-project)
+* [2. Users/Personas Of The Project](#2-userspersonas-of-the-project)
+* [3. Scope and Features Of The Project](#3-scope-and-features-of-the-project)
+* [4. Solution Concept](#4-solution-concept)
+* [5. Risk Identification](#5-risk-identification)
+* [6. Acceptance Criteria](#6-acceptance-criteria)
+* [7. Release Planning](#7-release-planning)
 
 ---
 
